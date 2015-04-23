@@ -16,3 +16,6 @@ fi
 setopt localoptions nonomatch
 
 alias gits="git status -s"
+
+# wrap git with the hub commant
+eval "$(hub alias -s)"
