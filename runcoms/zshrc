@@ -19,3 +19,9 @@ eval "$(hub alias -s)"
 
 # fix for using a carrot in commands, e.g. "git reset HEAD^^"
 setopt localoptions nonomatch
+
+# Update PATH for the Google Cloud SDK.
+if [ -f "${ZDOTDIR:-$HOME}/src/google-cloud-sdk/path.zsh.inc" ]; then source "${ZDOTDIR:-$HOME}/src/google-cloud-sdk/path.zsh.inc"; fi
+
+# Enable shell command completion for gcloud.
+if [ -f "${ZDOTDIR:-$HOME}/src/google-cloud-sdk/completion.zsh.inc" ]; then source "${ZDOTDIR:-$HOME}/src/google-cloud-sdk/completion.zsh.inc"; fi
