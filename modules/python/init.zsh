@@ -69,7 +69,11 @@ function _python-workon-cwd {
     # Activate the environment only if it is not already active
     if [[ "$VIRTUAL_ENV" != "$WORKON_HOME/$ENV_NAME" ]]; then
       if [[ -e "$WORKON_HOME/$ENV_NAME/bin/activate" ]]; then
-        workon "$ENV_NAME" && export CD_VIRTUAL_ENV="$ENV_NAME"
+        if type workon > /dev/null; then
+          workon "$ENV_NAME" && export CD_VIRTUAL_ENV="$ENV_NAME"
+        else
+          source $WORKON_HOME/$ENV_NAME/bin/activate && export CD_VIRTUAL_ENV="$ENV_NAME"
+        fi
       elif [[ -e "$ENV_NAME/bin/activate" ]]; then
         source $ENV_NAME/bin/activate && export CD_VIRTUAL_ENV="$ENV_NAME"
       fi

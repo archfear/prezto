@@ -24,3 +24,6 @@
   fi
 
 } >&2
+
+# Set the python virtual env when opening a new terminal
+_python-workon-cwd
