@@ -11,3 +11,11 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+alias gits="git status -s"
+
+# wrap git with the hub command
+eval "$(hub alias -s)"
+
+# fix for using a carrot in commands, e.g. "git reset HEAD^^"
+setopt localoptions nonomatch
